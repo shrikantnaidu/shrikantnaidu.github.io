@@ -374,27 +374,29 @@ button:active {
     .timeline::before {
         left: 1.5rem;
         transform: none;
+        width: 2px;
     }
     
     .timeline-item {
-        width: 100%;
+        width: 100% !important;
         left: 0 !important;
         text-align: left !important;
-        padding-left: 2.5rem;
+        padding-left: 3rem;
         margin-bottom: 1.5rem;
     }
     
     .timeline-item::before {
-        right: -30px !important;
-        left: auto !important;
-        width: 25px;
+        right: auto !important;
+        left: -2.5rem !important;
+        width: 2rem;
+        height: 1.5px;
     }
     
     .timeline-item::after {
-        right: -28px !important;
-        left: auto !important;
-        width: 6px;
-        height: 6px;
+        right: auto !important;
+        left: -2.25rem !important;
+        width: 8px;
+        height: 8px;
     }
     
     .timeline-content {
@@ -417,25 +419,29 @@ button:active {
 @media (max-width: 480px) {
     .timeline-container {
         padding: 1rem;
+        margin: 0.5rem auto;
     }
     
     .timeline::before {
         left: 1.25rem;
+        width: 1.5px;
     }
     
     .timeline-item {
-        padding-left: 2rem;
+        padding-left: 2.5rem;
         margin-bottom: 1.25rem;
     }
     
     .timeline-item::before {
-        width: 20px;
+        left: -2rem !important;
+        width: 1.5rem;
+        height: 1px;
     }
     
     .timeline-item::after {
-        right: -24px !important;
-        width: 5px;
-        height: 5px;
+        left: -1.75rem !important;
+        width: 6px;
+        height: 6px;
     }
     
     .timeline-content {
