@@ -20,42 +20,42 @@ Have an unsolvable problem? I'm just an mail away – **shrikantnaidu777@gmail.c
 ---
 <h3>Professional Experience</h3>
 
-<div style="max-width: 800px; margin: auto; position: relative;">
-    <div style="border-left: 2px solid black; padding-left: 30px; position: relative;">
-        <div style="margin-bottom: 40px; position: relative;">
-            <div style="position: absolute; left: -40px; top: 0; width: 20px; height: 20px; background-color: black; border-radius: 50%; border: 2px solid white; z-index: 1;"></div>
-            <h5 style="margin-top: 0;">Manager - Data Science & Engineering at Loylty Rewardz</h5>
-            <p><em>March 2024 - Present</em></p>
-            <!-- <p>Leading the fulfillment of data science and engineering requirements crucial to the business.</p> -->
-            <hr style="border: 1px solid #ccc; margin-top: 10px;">
+<div class="timeline-container">
+    <div class="timeline">
+        <div class="timeline-item left">
+            <div class="timeline-content">
+                <h5 class="timeline-title">Manager - Data Science & Engineering</h5>
+                <p class="timeline-company">Loylty Rewardz</p>
+                <p class="timeline-date">March 2024 - Present</p>
+            </div>
         </div>
-        <div style="margin-bottom: 40px; position: relative;">
-            <div style="position: absolute; left: -40px; top: 0; width: 20px; height: 20px; background-color: black; border-radius: 50%; border: 2px solid white; z-index: 1;"></div>
-            <h5 style="margin-top: 0;">Data Scientist II at Loylty Rewardz</h5>
-            <p><em>March 2023 - March 2024</em></p>
-            <!-- <p>Leading the fulfillment of data science and engineering requirements crucial to the business.</p> -->
-            <hr style="border: 1px solid #ccc; margin-top: 10px;">
+        <div class="timeline-item right">
+            <div class="timeline-content">
+                <h5 class="timeline-title">Data Scientist II</h5>
+                <p class="timeline-company">Loylty Rewardz</p>
+                <p class="timeline-date">March 2023 - March 2024</p>
+            </div>
         </div>
-        <div style="margin-bottom: 40px; position: relative;">
-            <div style="position: absolute; left: -40px; top: 0; width: 20px; height: 20px; background-color: black; border-radius: 50%; border: 2px solid white; z-index: 1;"></div>
-            <h5 style="margin-top: 0;">Data Scientist at Predoole Analytics</h5>
-            <p><em>October 2022 - March 2023</em></p>
-            <!-- <p>Revamped and optimized data pipelines in the insurance sector.</p> -->
-            <hr style="border: 1px solid #ccc; margin-top: 10px;">
+        <div class="timeline-item left">
+            <div class="timeline-content">
+                <h5 class="timeline-title">Data Scientist</h5>
+                <p class="timeline-company">Predoole Analytics</p>
+                <p class="timeline-date">October 2022 - March 2023</p>
+            </div>
         </div>
-        <div style="margin-bottom: 40px; position: relative;">
-            <div style="position: absolute; left: -40px; top: 0; width: 20px; height: 20px; background-color: black; border-radius: 50%; border: 2px solid white; z-index: 1;"></div>
-            <h5 style="margin-top: 0;">Data Analyst at Medly</h5>
-            <p><em>October 2020 - September 2022</em></p>
-            <!-- <p>Empowered stakeholders with data-driven decision-making by leveraging analytics and machine learning techniques.</p> -->
-            <hr style="border: 1px solid #ccc; margin-top: 10px;">
+        <div class="timeline-item right">
+            <div class="timeline-content">
+                <h5 class="timeline-title">Data Analyst</h5>
+                <p class="timeline-company">Medly</p>
+                <p class="timeline-date">October 2020 - September 2022</p>
+            </div>
         </div>
-        <div style="margin-bottom: 40px; position: relative;">
-            <div style="position: absolute; left: -40px; top: 0; width: 20px; height: 20px; background-color: black; border-radius: 50%; border: 2px solid white; z-index: 1;"></div>
-            <h5 style="margin-top: 0;">Data Science Intern at Leadzpipe</h5>
-            <p><em>October 2019 - May 2020</em></p>
-            <!-- <p>Extracted campaign data from Google AdWords and modeled it for NoSQL databases.</p> -->
-            <hr style="border: 1px solid #ccc; margin-top: 10px;">
+        <div class="timeline-item left">
+            <div class="timeline-content">
+                <h5 class="timeline-title">Data Science Intern</h5>
+                <p class="timeline-company">Leadzpipe</p>
+                <p class="timeline-date">October 2019 - May 2020</p>
+            </div>
         </div>
     </div>
 </div>
@@ -86,55 +86,498 @@ Have an unsolvable problem? I'm just an mail away – **shrikantnaidu777@gmail.c
 .image-slider {
     position: relative;
     max-width: 100%;
-    margin: auto;
+    margin: 2rem auto;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+    padding: 1.5rem;
 }
 
 .slider {
     display: flex;
     overflow: hidden;
+    border-radius: 8px;
 }
 
 .slide {
     min-width: 100%;
-    transition: transform 0.5s ease;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
     text-align: center;
+    position: relative;
 }
 
 .slide img {
     max-width: 100%;
-    max-height: 400px;
+    max-height: 450px;
     height: auto;
     object-fit: contain;
     display: block;
     margin: 0 auto;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.slide:hover img {
+    transform: scale(1.02);
 }
 
 .caption {
-    margin-top: 10px;
-    font-size: 14px;
-    color: #555;
+    margin-top: 1.5rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #2c3e50;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    position: relative;
+    padding-bottom: 0.5rem;
+}
+
+.caption::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, #ff6f00, #ff8f00);
+    border-radius: 2px;
 }
 
 button {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background-color: rgba(255, 255, 255, 0.8);
-    border: none;
+    background: rgba(255, 255, 255, 0.95);
+    border: 2px solid #ff6f00;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
     cursor: pointer;
+    font-size: 1.2rem;
+    color: #ff6f00;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 20px rgba(255, 111, 0, 0.2);
+}
+
+button:hover {
+    background: #ff6f00;
+    color: white;
+    transform: translateY(-50%) scale(1.1);
+    box-shadow: 0 6px 25px rgba(255, 111, 0, 0.4);
+}
+
+button:active {
+    transform: translateY(-50%) scale(0.95);
 }
 
 .prev {
-    left: 10px;
+    left: 20px;
 }
 
 .next {
-    right: 10px;
+    right: 20px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .image-slider {
+        margin: 1rem auto;
+        padding: 1rem;
+    }
+    
+    .slide img {
+        max-height: 300px;
+    }
+    
+    .caption {
+        font-size: 1rem;
+        margin-top: 1rem;
+    }
+    
+    button {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+    }
+    
+    .prev {
+        left: 10px;
+    }
+    
+    .next {
+        right: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .slide img {
+        max-height: 250px;
+    }
+    
+    .caption {
+        font-size: 0.9rem;
+    }
+    
+    button {
+        width: 35px;
+        height: 35px;
+        font-size: 0.9rem;
+    }
+}
+
+/* Timeline Styles */
+.timeline-container {
+    max-width: 700px;
+    margin: 1rem auto;
+    padding: 1.5rem;
+    background: #f8f9fa;
+    border-radius: 6px;
+    position: relative;
+}
+
+.timeline {
+    position: relative;
+    padding: 0.5rem 0;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: #6c757d;
+    transform: translateX(-50%);
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 2rem;
+    width: 45%;
+    opacity: 0;
+    transform: translateY(15px);
+    animation: fadeInUp 0.4s ease forwards;
+}
+
+.timeline-item:nth-child(1) { animation-delay: 0.1s; }
+.timeline-item:nth-child(2) { animation-delay: 0.15s; }
+.timeline-item:nth-child(3) { animation-delay: 0.2s; }
+.timeline-item:nth-child(4) { animation-delay: 0.25s; }
+.timeline-item:nth-child(5) { animation-delay: 0.3s; }
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.timeline-item.left {
+    left: 0;
+    text-align: right;
+}
+
+.timeline-item.right {
+    left: 55%;
+    text-align: left;
+}
+
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 30px;
+    height: 1.5px;
+    background: #dee2e6;
+    transform: translateY(-50%);
+}
+
+.timeline-item.left::before {
+    right: -30px;
+}
+
+.timeline-item.right::before {
+    left: -30px;
+}
+
+.timeline-item::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 8px;
+    height: 8px;
+    background: #6c757d;
+    border-radius: 50%;
+    transform: translateY(-50%);
+}
+
+.timeline-item.left::after {
+    right: -34px;
+}
+
+.timeline-item.right::after {
+    left: -34px;
+}
+
+.timeline-content {
+    background: #ffffff;
+    padding: 1rem;
+    border-radius: 6px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+    transition: all 0.2s ease;
+    position: relative;
+}
+
+.timeline-content:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.timeline-title {
+    margin: 0 0 0.3rem 0;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #2c3e50;
+    line-height: 1.2;
+}
+
+.timeline-company {
+    margin: 0 0 0.2rem 0;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: #495057;
+}
+
+.timeline-date {
+    margin: 0;
+    font-size: 0.75rem;
+    color: #6c757d;
+    font-weight: 400;
+    font-style: italic;
+}
+
+/* Responsive Timeline */
+@media (max-width: 768px) {
+    .timeline-container {
+        margin: 0.75rem auto;
+        padding: 1.25rem;
+    }
+    
+    .timeline::before {
+        left: 1.5rem;
+        transform: none;
+    }
+    
+    .timeline-item {
+        width: 100%;
+        left: 0 !important;
+        text-align: left !important;
+        padding-left: 2.5rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .timeline-item::before {
+        right: -30px !important;
+        left: auto !important;
+        width: 25px;
+    }
+    
+    .timeline-item::after {
+        right: -28px !important;
+        left: auto !important;
+        width: 6px;
+        height: 6px;
+    }
+    
+    .timeline-content {
+        padding: 0.875rem;
+    }
+    
+    .timeline-title {
+        font-size: 0.9rem;
+    }
+    
+    .timeline-company {
+        font-size: 0.8rem;
+    }
+    
+    .timeline-date {
+        font-size: 0.7rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .timeline-container {
+        padding: 1rem;
+    }
+    
+    .timeline::before {
+        left: 1.25rem;
+    }
+    
+    .timeline-item {
+        padding-left: 2rem;
+        margin-bottom: 1.25rem;
+    }
+    
+    .timeline-item::before {
+        width: 20px;
+    }
+    
+    .timeline-item::after {
+        right: -24px !important;
+        width: 5px;
+        height: 5px;
+    }
+    
+    .timeline-content {
+        padding: 0.75rem;
+    }
+    
+    .timeline-title {
+        font-size: 0.85rem;
+    }
+    
+    .timeline-company {
+        font-size: 0.75rem;
+    }
+    
+    .timeline-date {
+        font-size: 0.65rem;
+    }
+}
+
+/* Socials Styles */
+.socials-container {
+    max-width: 600px;
+    margin: 1.5rem auto;
+    padding: 1.5rem;
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.socials-grid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+
+.social-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    border-radius: 8px;
+    background: #f8f9fa;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.social-link:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    background: #ffffff;
+}
+
+.social-link img {
+    width: 24px;
+    height: 24px;
+    transition: transform 0.3s ease;
+}
+
+.social-link:hover img {
+    transform: scale(1.1);
+}
+
+/* Special styling for Weights & Biases */
+.social-link:nth-child(5) {
+    width: auto;
+    padding: 0 1rem;
+    background: #ff6f00;
+    color: white;
+}
+
+.social-link:nth-child(5):hover {
+    background: #ff8f00;
+}
+
+.social-link:nth-child(5) img {
+    width: auto;
+    height: 20px;
+}
+
+/* Responsive Socials */
+@media (max-width: 768px) {
+    .socials-container {
+        margin: 1rem auto;
+        padding: 1.25rem;
+    }
+    
+    .socials-grid {
+        gap: 1rem;
+    }
+    
+    .social-link {
+        width: 44px;
+        height: 44px;
+    }
+    
+    .social-link img {
+        width: 22px;
+        height: 22px;
+    }
+    
+    .social-link:nth-child(5) {
+        padding: 0 0.75rem;
+    }
+    
+    .social-link:nth-child(5) img {
+        height: 18px;
+    }
+}
+
+@media (max-width: 480px) {
+    .socials-grid {
+        gap: 0.75rem;
+    }
+    
+    .social-link {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .social-link img {
+        width: 20px;
+        height: 20px;
+    }
+    
+    .social-link:nth-child(5) {
+        padding: 0 0.5rem;
+    }
+    
+    .social-link:nth-child(5) img {
+        height: 16px;
+    }
 }
 </style>
 
 <script>
 let currentSlide = 0;
+let autoPlayInterval;
+let isHovered = false;
 
 function showSlide(index) {
     const slides = document.querySelectorAll('.slide');
@@ -153,35 +596,98 @@ function showSlide(index) {
 
 function moveSlide(direction) {
     showSlide(currentSlide + direction);
+    resetAutoPlay();
+}
+
+function startAutoPlay() {
+    autoPlayInterval = setInterval(() => {
+        if (!isHovered) {
+            moveSlide(1);
+        }
+    }, 5000); // Auto-advance every 5 seconds
+}
+
+function stopAutoPlay() {
+    clearInterval(autoPlayInterval);
+}
+
+function resetAutoPlay() {
+    stopAutoPlay();
+    startAutoPlay();
 }
 
 // Initialize the slider
-showSlide(currentSlide);
+document.addEventListener('DOMContentLoaded', function() {
+    showSlide(currentSlide);
+    startAutoPlay();
+    
+    // Pause auto-play on hover
+    const slider = document.querySelector('.image-slider');
+    if (slider) {
+        slider.addEventListener('mouseenter', () => {
+            isHovered = true;
+            stopAutoPlay();
+        });
+        
+        slider.addEventListener('mouseleave', () => {
+            isHovered = false;
+            startAutoPlay();
+        });
+    }
+    
+    // Touch/swipe support for mobile
+    let startX = 0;
+    let endX = 0;
+    
+    slider.addEventListener('touchstart', (e) => {
+        startX = e.touches[0].clientX;
+    });
+    
+    slider.addEventListener('touchend', (e) => {
+        endX = e.changedTouches[0].clientX;
+        handleSwipe();
+    });
+    
+    function handleSwipe() {
+        const threshold = 50;
+        const diff = startX - endX;
+        
+        if (Math.abs(diff) > threshold) {
+            if (diff > 0) {
+                moveSlide(1); // Swipe left - next slide
+            } else {
+                moveSlide(-1); // Swipe right - previous slide
+            }
+        }
+    }
+});
 </script>
 
-<hr>
+<!-- <hr>
 
-<h3>Socials</h3>
+<h3>Tech Socials</h3>
 
-<div style="display: flex; justify-content: center; flex-wrap: wrap; gap: 15px; margin: 20px 0;">
-    <a href="https://x.com/shrikantnaiidu" target="_blank" rel="noreferrer">
-        <img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/socials/twitter.svg" width="32" height="32" alt="X" />
-    </a>
-    <a href="https://www.linkedin.com/in/shrikant-naidu/" target="_blank" rel="noreferrer">
-        <img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/socials/linkedin.svg" width="32" height="32" alt="LinkedIn" />
-    </a>
-    <a href="https://app.datacamp.com/profile/shrikantnaidu777" target="_blank" rel="noreferrer">
-        <img src="https://www.svgrepo.com/show/349332/datacamp.svg" width="32" height="32" alt="DataCamp" />
-    </a>
-    <a href="https://steamcommunity.com/id/shrikantnaidu/" target="_blank" rel="noreferrer">
-        <img src="https://www.vectorlogo.zone/logos/steampowered/steampowered-icon.svg" width="32" height="32" alt="Steam" />
-    </a>
-    <a href="https://wandb.ai/skn97" target="_blank" rel="noreferrer">
-        <img src="https://www.vectorlogo.zone/logos/wandbai/wandbai-official.svg" width="100" height="35" alt="Weights & Biases" />
-    </a>
-    <a href="https://huggingface.co/shrikantnaidu" target="_blank" rel="noreferrer">
-        <img src="https://huggingface.co/front/assets/huggingface_logo-noborder.svg" width="32" height="32" alt="Hugging Face" />
-    </a>
+<div class="socials-container">
+    <div class="socials-grid">
+        <a href="https://x.com/shrikantnaiidu" target="_blank" rel="noreferrer" class="social-link">
+            <img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/socials/twitter.svg" alt="X" />
+        </a>
+        <a href="https://www.linkedin.com/in/shrikant-naidu/" target="_blank" rel="noreferrer" class="social-link">
+            <img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/socials/linkedin.svg" alt="LinkedIn" />
+        </a>
+        <a href="https://github.com/shrikantnaidu" target="_blank" rel="noreferrer" class="social-link">
+            <img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/socials/github.svg" alt="GitHub" />
+        </a>
+        <a href="https://steamcommunity.com/id/shrikantnaidu/" target="_blank" rel="noreferrer" class="social-link">
+            <img src="https://www.vectorlogo.zone/logos/steampowered/steampowered-icon.svg" alt="Steam" />
+        </a>
+        <a href="https://wandb.ai/skn97" target="_blank" rel="noreferrer" class="social-link">
+            <img src="https://www.vectorlogo.zone/logos/wandbai/wandbai-official.svg" alt="Weights & Biases" />
+        </a>
+        <a href="https://huggingface.co/shrikantnaidu" target="_blank" rel="noreferrer" class="social-link">
+            <img src="https://huggingface.co/front/assets/huggingface_logo-noborder.svg" alt="Hugging Face" />
+        </a>
+    </div>
 </div>
 
-<hr>
+<hr> -->
