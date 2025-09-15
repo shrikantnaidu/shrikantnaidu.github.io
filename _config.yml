@@ -19,7 +19,7 @@ menu:
     url: /Projects/
     submenu: 
       - name : Generative AI
-        url : /gen-ai/
+        url : /generative-ai/
       - name : Deep Learning
         url : /deep-learning/
       - name : Data Engineering
