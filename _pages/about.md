@@ -73,10 +73,10 @@ Have an unsolvable problem? I'm just an mail away – **shrikantnaidu777@gmail.c
             <img src="/assets/images/img-2.png" alt="Image 2">
             <div class="caption">Extraordinary Diligence Award 2024</div>
         </div>
-        <!-- <div class="slide">
-            <img src="/assets/images/image3.jpg" alt="Image 3">
+        <div class="slide">
+            <img src="/assets/images/img-3.jpg" alt="Image 3">
             <div class="caption">Caption for Image 3</div>
-        </div> -->
+        </div>
     </div>
     <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
     <button class="next" onclick="moveSlide(1)">&#10095;</button>
