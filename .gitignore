@@ -1,3 +1,5 @@
+.bundle
+vendor
 _site
 .sass-cache
 .jekyll-metadata
@@ -5,3 +7,4 @@ _site
 Gemfile.lock
 .jekyll-cache
 sample_posts
+WARP.md
