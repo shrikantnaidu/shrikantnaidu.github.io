@@ -1,0 +1,29 @@
+/* Better Font for Hero Section Text Only */
+
+/* Import Poppins - a more substantial, modern font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+/* Target only the hero section paragraph text */
+.hero-section p {
+  font-family: "Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+  font-size: 28px !important; /* Increased from 22px to 28px */
+  line-height: 1.5 !important;
+  font-weight: 500 !important; /* Medium weight for better presence */
+  letter-spacing: 0.01em !important; /* Slightly wider for Poppins */
+  margin-bottom: 1.5em !important;
+}
+
+/* Mobile responsive for hero text */
+@media (max-width: 767px) {
+  .hero-section p {
+    font-size: 24px !important; /* Increased from 19px to 24px */
+    line-height: 1.4 !important;
+  }
+}
+
+/* Ensure proper font rendering */
+.hero-section p {
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
