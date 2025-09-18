@@ -75,7 +75,7 @@ Have an unsolvable problem? I'm just an mail away – **shrikantnaidu777@gmail.c
         </div>
         <div class="slide">
             <img src="/assets/images/img-3.jpg" alt="Image 3">
-            <div class="caption">Caption for Image 3</div>
+            <div class="caption">Outside the Box Thinker Award 2025</div>
         </div>
     </div>
     <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
