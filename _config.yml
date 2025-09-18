@@ -62,18 +62,18 @@ contact:
   email: shrikantnaidu777@gmail.com
   phone: +91-8433888268  
   address:
-    city: Mumbai
-    street: 400089
+    city: Mumbai, Maharashtra
+    country: India
 
 # Contact Form
 contact-form: example@email.com
 
 # Social links
 social:
-  - { icon: "ti-linkedin", link: "https://www.linkedin.com/in/shrikant-naidu/"}
-  - { icon: "ti-github", link: "https://github.com/shrikantnaidu"}
-  - { icon: "ti-twitter-alt", link: "https://x.com/shrikantnaiidu" }
-  # - { icon: "ti-instagram", link: "https://www.instagram.com/sk.barcaholic/" }
+  - { icon: "fab fa-linkedin-in", link: "https://www.linkedin.com/in/shrikant-naidu/"}
+  - { icon: "fab fa-github", link: "https://github.com/shrikantnaidu"}
+  - { icon: "fab fa-x-twitter", link: "https://x.com/shrikantnaiidu" }
+  # - { icon: "fab fa-instagram", link: "https://www.instagram.com/sk.barcaholic/" }
 
 
 #-------------------------------
