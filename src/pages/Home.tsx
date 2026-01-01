@@ -13,7 +13,7 @@ export const Home: React.FC = () => {
       <Works />
       <Writing />
       <About />
-      <Testimonials />
+      {/* <Testimonials /> */}
       <Contact />
     </>
   );
