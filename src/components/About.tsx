@@ -26,7 +26,7 @@ export const About: React.FC = () => {
                         About Me
                      </span>
                      <h2 className="text-4xl font-heading font-bold text-neutral-900 mb-8 leading-tight">
-                        {profile.hero.heading} {profile.hero.rotatingTexts[0]}
+                        {profile.hero.aboutHeading}
                      </h2>
                   </Reveal>
 
