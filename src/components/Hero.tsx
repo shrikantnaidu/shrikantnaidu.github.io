@@ -24,15 +24,15 @@ export const Hero: React.FC = () => {
     if (!ctx) return;
 
     let animationFrameId: number;
-    
+
     type Particle = { x: number; y: number; vx: number; vy: number; size: number };
-    type Impulse = { 
-      source: Particle; 
-      target: Particle; 
-      progress: number; 
-      speed: number; 
+    type Impulse = {
+      source: Particle;
+      target: Particle;
+      progress: number;
+      speed: number;
     };
-    
+
     let particles: Particle[] = [];
     let impulses: Impulse[] = [];
 
@@ -45,14 +45,14 @@ export const Hero: React.FC = () => {
     const initParticles = () => {
       particles = [];
       impulses = [];
-      
-      const particleCount = Math.min(Math.floor(window.innerWidth / 15), 80); 
-      
+
+      const particleCount = Math.min(Math.floor(window.innerWidth / 15), 80);
+
       for (let i = 0; i < particleCount; i++) {
         particles.push({
           x: Math.random() * canvas.width,
           y: Math.random() * canvas.height,
-          vx: (Math.random() - 0.5) * 0.3, 
+          vx: (Math.random() - 0.5) * 0.3,
           vy: (Math.random() - 0.5) * 0.3,
           size: Math.random() * 1.5 + 0.5,
         });
@@ -61,15 +61,15 @@ export const Hero: React.FC = () => {
 
     const draw = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-      
+
       // --- BACKGROUND NETWORK ---
       ctx.globalCompositeOperation = 'source-over';
-      ctx.fillStyle = '#f3f4f6'; 
-      
+      ctx.fillStyle = '#f3f4f6';
+
       particles.forEach((p, i) => {
         p.x += p.vx;
         p.y += p.vy;
-        
+
         // Bounce off edges
         if (p.x < 0 || p.x > canvas.width) p.vx *= -1;
         if (p.y < 0 || p.y > canvas.height) p.vy *= -1;
@@ -88,10 +88,10 @@ export const Hero: React.FC = () => {
           const distSq = dx * dx + dy * dy;
           const maxDist = 20000;
 
-          if (distSq < maxDist) { 
+          if (distSq < maxDist) {
             ctx.beginPath();
-            ctx.globalAlpha = (1 - Math.sqrt(distSq) / Math.sqrt(maxDist)) * 0.2; 
-            ctx.strokeStyle = '#9ca3af'; 
+            ctx.globalAlpha = (1 - Math.sqrt(distSq) / Math.sqrt(maxDist)) * 0.2;
+            ctx.strokeStyle = '#9ca3af';
             ctx.moveTo(p.x, p.y);
             ctx.lineTo(p2.x, p2.y);
             ctx.stroke();
@@ -99,12 +99,12 @@ export const Hero: React.FC = () => {
 
             // Chance to spawn an electric impulse
             if (Math.random() < 0.0005) {
-                impulses.push({
-                    source: p,
-                    target: p2,
-                    progress: 0,
-                    speed: 0.005 + Math.random() * 0.01
-                });
+              impulses.push({
+                source: p,
+                target: p2,
+                progress: 0,
+                speed: 0.005 + Math.random() * 0.01
+              });
             }
           }
         }
@@ -113,39 +113,39 @@ export const Hero: React.FC = () => {
       // --- ELECTRIC IMPULSES ---
       // Optimized Loop: remove filter() allocation to reduce GC
       ctx.globalCompositeOperation = 'lighter';
-      
+
       let writeIdx = 0; // In-place array compaction
       for (let i = 0; i < impulses.length; i++) {
         const imp = impulses[i];
         imp.progress += imp.speed;
 
         if (imp.progress < 1) {
-            const dx = imp.target.x - imp.source.x;
-            const dy = imp.target.y - imp.source.y;
-            const distSq = dx*dx + dy*dy;
-            
-            // Only keep if connection valid
-            if (distSq < 25000) {
-                 const currX = imp.source.x + dx * imp.progress;
-                 const currY = imp.source.y + dy * imp.progress;
-                 
-                 ctx.beginPath();
-                 ctx.arc(currX, currY, 2, 0, Math.PI * 2);
-                 ctx.fillStyle = '#3b82f6'; // Blue-500
-                 ctx.shadowColor = '#2563eb';
-                 ctx.shadowBlur = 8;
-                 ctx.fill();
-                 ctx.shadowBlur = 0;
+          const dx = imp.target.x - imp.source.x;
+          const dy = imp.target.y - imp.source.y;
+          const distSq = dx * dx + dy * dy;
 
-                 // Keep in array
-                 impulses[writeIdx++] = imp;
-            }
+          // Only keep if connection valid
+          if (distSq < 25000) {
+            const currX = imp.source.x + dx * imp.progress;
+            const currY = imp.source.y + dy * imp.progress;
+
+            ctx.beginPath();
+            ctx.arc(currX, currY, 2, 0, Math.PI * 2);
+            ctx.fillStyle = '#3b82f6'; // Blue-500
+            ctx.shadowColor = '#2563eb';
+            ctx.shadowBlur = 8;
+            ctx.fill();
+            ctx.shadowBlur = 0;
+
+            // Keep in array
+            impulses[writeIdx++] = imp;
+          }
         }
       }
       impulses.length = writeIdx; // Truncate array
 
       ctx.globalCompositeOperation = 'source-over';
-      
+
       animationFrameId = requestAnimationFrame(draw);
     };
 
@@ -168,7 +168,7 @@ export const Hero: React.FC = () => {
   };
 
   const HeroContent = () => (
-    <div 
+    <div
       className="flex flex-col items-center text-center max-w-5xl mx-auto px-6 py-20"
     >
       <h1 className="text-6xl md:text-8xl lg:text-9xl font-heading font-black text-neutral-900 leading-[0.9] mb-8 tracking-tighter text-center uppercase">
@@ -179,11 +179,11 @@ export const Hero: React.FC = () => {
           </span>
         </span>
       </h1>
-      
+
       <p className="text-xl md:text-2xl text-neutral-500 max-w-3xl leading-relaxed mb-12 font-medium text-center mx-auto uppercase tracking-wide">
         {profile.hero.subheading}
       </p>
-      
+
       <a
         href="#works"
         onClick={handleScroll}
@@ -201,13 +201,13 @@ export const Hero: React.FC = () => {
   return (
     <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden bg-white">
       {/* Background Canvas */}
-      <canvas 
-        ref={canvasRef} 
+      <canvas
+        ref={canvasRef}
         className="absolute inset-0 w-full h-full pointer-events-none z-0"
       />
-      
+
       {/* Grid Overlay */}
-      <div 
+      <div
         className="absolute inset-0 w-full h-full pointer-events-none opacity-[0.05] z-0"
         style={{
           backgroundImage: `linear-gradient(#000 1px, transparent 1px), linear-gradient(90deg, #000 1px, transparent 1px)`,
@@ -218,7 +218,7 @@ export const Hero: React.FC = () => {
       {/* Main Content */}
       <Reveal width="100%">
         <div className="relative w-full z-10 min-h-[80vh] flex items-center justify-center">
-           <HeroContent />
+          <HeroContent />
         </div>
       </Reveal>
     </section>
