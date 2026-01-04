@@ -4,6 +4,7 @@ import { Navbar } from './components/Navbar';
 import { Footer } from './components/Footer';
 import { GoogleAnalytics } from './components/GoogleAnalytics';
 import { Home } from './pages/Home';
+import { profile } from './data';
 import { WorksPage } from './pages/WorksPage';
 import { ProjectPage } from './pages/ProjectPage';
 import { WritingPage } from './pages/WritingPage';
@@ -11,11 +12,11 @@ import { PostPage } from './pages/PostPage';
 import { AboutPage } from './pages/AboutPage';
 
 const App: React.FC = () => {
-  const gaId = import.meta.env.VITE_GA_MEASUREMENT_ID || 'G-XXXXXXXXXX';
+  const gaId = profile.contact.googleAnalyticsId || 'G-XXXXXXXXXX';
 
   return (
     <Router>
-      <GoogleAnalytics measurementId={gaId} />
+      {gaId !== 'G-XXXXXXXXXX' && <GoogleAnalytics measurementId={gaId} />}
       <div className="antialiased text-neutral-900 bg-white min-h-screen relative font-sans">
         <Navbar />
         <main>
