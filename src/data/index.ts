@@ -18,6 +18,7 @@ interface AboutAttributes {
   };
   hero: {
     heading: string;
+    aboutHeading: string;
     subheading: string;
     rotatingTexts: string[];
   };
@@ -87,6 +88,7 @@ if (aboutContent) {
     },
     hero: {
       heading: "Building",
+      aboutHeading: "Turning complexity into working systems.",
       rotatingTexts: ["Amazing Things."],
       subheading: "Welcome to my portfolio"
     },
@@ -112,11 +114,11 @@ export { profile };
 interface ProjectAttributes {
   title: string;
   category: string;
+  date: string;
+  client?: string;
   description: string;
   imageUrl: string;
   link: string;
-  date: string | Date;
-  client?: string;
   tags?: string[];
 }
 
@@ -126,121 +128,82 @@ const projectFiles = import.meta.glob('/src/projects/*.md', {
   import: 'default'
 });
 
-console.log('Project files found:', Object.keys(projectFiles));
+const projects: Project[] = Object.entries(projectFiles).map(([path, content]) => {
+  const parse = (fm as any).default || fm;
+  const { attributes, body } = parse((content as string).trim());
+  const attrs = attributes as ProjectAttributes;
 
-const dynamicProjects: Project[] = Object.keys(projectFiles).map((path): Project | null => {
-  try {
-    const rawContent = projectFiles[path] as string;
-    const content = rawContent.trim();
+  // Extract ID from filename (e.g., 'data-modeling-with-postgres' from '/src/projects/data-modeling-with-postgres.md')
+  const id = path.split('/').pop()?.replace('.md', '') || '';
 
-    console.log(`--- Processing: ${path} ---`);
-    console.log('Raw content first 100 chars:', JSON.stringify(rawContent.substring(0, 100)));
-    console.log('Trimmed content first 100 chars:', JSON.stringify(content.substring(0, 100)));
+  return {
+    id,
+    ...attrs,
+    fullContent: body
+  };
+}).sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 
-    // Handle potential CJS/ESM interop issues with front-matter
-    const parse = (fm as any).default || fm;
-    console.log('Parse function type:', typeof parse);
-
-    const parsed = parse(content);
-    console.log('Parsed attributes:', parsed.attributes);
-    console.log('Parsed body length:', parsed.body?.length);
-
-    const { title, category, description, imageUrl, link, date, client, tags } = parsed.attributes as ProjectAttributes;
-    const id = path.split('/').pop()?.replace('.md', '') || 'unknown';
-
-    const dateString = date instanceof Date ? date.toISOString().split('T')[0] : String(date);
-
-    const project = {
-      id,
-      title,
-      category,
-      description,
-      imageUrl,
-      link,
-      date: dateString,
-      client,
-      tags,
-      fullContent: parsed.body
-    };
-
-    console.log('Created project:', { id, title, hasContent: !!parsed.body });
-
-    return project;
-  } catch (e) {
-    console.error(`Error loading project ${path}:`, e);
-    return null;
-  }
-}).filter((p): p is Project => p !== null);
-
-// Sort projects by date (descending - newest first)
-export const projects: Project[] = dynamicProjects.sort((a, b) => {
-  const dateA = new Date(a.date).getTime() || 0;
-  const dateB = new Date(b.date).getTime() || 0;
-  return dateB - dateA;
-});
-
-console.log('Final Projects List:', projects);
+export { projects };
 
 
 // --- Dynamic Post Loader ---
 
 interface PostAttributes {
   title: string;
-  date: string | Date;
+  date: string;
   category: string;
-  excerpt: string;
 }
 
-const markdownFiles = import.meta.glob('/src/posts/*.md', {
+const postFiles = import.meta.glob('/src/posts/*.md', {
   eager: true,
   query: '?raw',
   import: 'default'
 });
 
-export const posts: Post[] = Object.keys(markdownFiles).map((path): Post | null => {
-  try {
-    const content = markdownFiles[path] as string;
-    const parse = (fm as any).default || fm;
-    const parsed = parse(content);
+const posts: Post[] = Object.entries(postFiles).map(([path, content]) => {
+  const parse = (fm as any).default || fm;
+  const { attributes, body } = parse((content as string).trim());
+  const attrs = attributes as PostAttributes;
 
-    const { title, date, category, excerpt } = parsed.attributes as PostAttributes;
-    const id = path.split('/').pop()?.replace('.md', '') || 'unknown';
+  const id = path.split('/').pop()?.replace('.md', '') || '';
 
-    const dateString = date instanceof Date ? date.toLocaleDateString('en-US', {
-      year: 'numeric', month: 'short', day: 'numeric'
-    }) : String(date);
+  // Calculate excerpt from body
+  const excerpt = body
+    .replace(/[#*`]/g, '') // Remove markdown symbols
+    .split('\n')
+    .find((line: string) => line.trim().length > 0)
+    ?.slice(0, 150) + '...';
 
-    return {
-      id,
-      title,
-      date: dateString,
-      category,
-      excerpt,
-      content: parsed.body
-    };
-  } catch (e) {
-    console.error(`Error loading post ${path}:`, e);
-    return null;
-  }
-}).filter((p): p is Post => p !== null)
-  .sort((a, b) => {
-    // Sort by date descending (newest first)
-    const dateA = new Date(a.date).getTime() || 0;
-    const dateB = new Date(b.date).getTime() || 0;
-    return dateB - dateA;
-  });
+  return {
+    id,
+    ...attrs,
+    excerpt: excerpt || '',
+    content: body
+  };
+}).sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 
+export { posts };
+
+// --- Static Data ---
 export const testimonials: Testimonial[] = [
   {
     id: '1',
-    quote: "Shrikant bridges the gap between complex research and production code. The RAG system he built transformed how we access internal knowledge.",
-    author: "Priya Mehta",
-    role: "VP of Engineering, FinTech Corp",
+    quote: "Working with this team was a game-changer for our data strategy.",
+    author: "Sarah Johnson",
+    role: "CTO at TechFlow"
   },
   {
     id: '2',
-    quote: "The visual inspection model improved our yield by 15% and has been running 24/7 without downtime. A reliable and scalable solution.",
-    author: "James Wilson",
-    role: "Director of Ops, Manufacturing Inc.",
-  },
+    quote: "The insight they provided helped us scale our infrastructure 10x.",
+    author: "Michael Chen",
+    role: "VP of Engineering at DataSystems"
+  }
+];
+
+export const navItems = [
+  { label: 'Home', href: '#home' },
+  { label: 'Works', href: '#works' },
+  { label: 'Writing', href: '#writing' },
+  { label: 'About', href: '#about' },
+  { label: 'Contact', href: '#contact' },
 ];
