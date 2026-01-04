@@ -16,13 +16,14 @@ social:
   linkedin: "https://www.linkedin.com/in/shrikant-naidu/"
   twitter: "https://x.com/shrikantnaiidu"
   lightning: "https://lightning.ai/shrikantnaidu777"
-  wandb: "https://wandb.ai/shrikantnaidu"
+  wandb: "https://wandb.ai/skn97"
   huggingface: "https://huggingface.co/shrikantnaidu"
   steam: "https://steamcommunity.com/id/shrikantnaidu"
 
-# Contact Configuration
+# Contact & Analytics Configuration
 contact:
   formspreeId: "https://formspree.io/f/xgebkwej"
+  googleAnalyticsId: "G-LGM7ELPF1F"
 
 # Hero Section (Homepage)
 hero:
@@ -36,7 +37,7 @@ hero:
     - "Predictive Models."
 
 # Short Bio (shown on Homepage About section)
-shortBio: "I am a practitioner who believes that the best models are the ones that actually make it to production. My expertise lies in full-stack data science—from orchestrating distributed training pipelines to serving low-latency inference APIs."
+shortBio: "I am a practitioner who believes that the best models are the ones that actually make it to production. My expertise lies in full-stack data science - from orchestrating distributed training pipelines to serving low-latency inference APIs."
 
 # About Page Tagline (the blue text after "Hello, I'm [Name].")
 tagline: "Building for the Future."
