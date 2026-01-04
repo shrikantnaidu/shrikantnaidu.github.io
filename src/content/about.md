@@ -43,15 +43,15 @@ shortBio: "I am a practitioner who believes that the best models are the ones th
 tagline: "Building for the Future."
 
 # Profile Photo
-profileImage: "https://raw.githubusercontent.com/shrikantnaidu/shrikantnaidu.github.io/main/src/assets/images/sk-img-sharpened.png"
+profileImage: "https://raw.githubusercontent.com/shrikantnaidu/shrikantnaidu.github.io/main/src/assets/sk-img-sharpened.png"
 
 # Achievements Slider Images
 achievements:
-  - url: "https://raw.githubusercontent.com/shrikantnaidu/shrikantnaidu.github.io/main/assets/images/img-1.png"
+  - url: "https://raw.githubusercontent.com/shrikantnaidu/shrikantnaidu.github.io/main/src/assets/img-1.png"
     caption: "Aegis Graham Bell Awards 2020"
-  - url: "https://raw.githubusercontent.com/shrikantnaidu/shrikantnaidu.github.io/main/assets/images/img-2.png"
+  - url: "https://raw.githubusercontent.com/shrikantnaidu/shrikantnaidu.github.io/main/src/assets/img-2.png"
     caption: "Extraordinary Diligence Award 2024"
-  - url: "https://raw.githubusercontent.com/shrikantnaidu/shrikantnaidu.github.io/main/assets/images/img-3.jpg"
+  - url: "https://raw.githubusercontent.com/shrikantnaidu/shrikantnaidu.github.io/main/src/assets/img-3.jpg"
     caption: "Outside the Box Thinker Award 2025"
 ---
 
