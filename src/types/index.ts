@@ -66,5 +66,6 @@ export interface Profile {
   achievements: Achievement[]; // Slider images
   contact: {
     formspreeId: string;
+    googleAnalyticsId?: string;
   };
 }
