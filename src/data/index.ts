@@ -11,6 +11,10 @@ interface AboutAttributes {
     github: string;
     linkedin: string;
     twitter: string;
+    lightning?: string;
+    wandb?: string;
+    huggingface?: string;
+    steam?: string;
   };
   hero: {
     heading: string;
@@ -21,6 +25,9 @@ interface AboutAttributes {
   tagline: string;
   profileImage: string;
   achievements: Achievement[];
+  contact: {
+    formspreeId: string;
+  };
 }
 
 const aboutFile = import.meta.glob('/src/content/about.md', {
@@ -52,7 +59,8 @@ if (aboutContent) {
     },
     tagline: attrs.tagline,
     profileImage: attrs.profileImage,
-    achievements: attrs.achievements || []
+    achievements: attrs.achievements || [],
+    contact: attrs.contact || { formspreeId: "" }
   };
 
   console.log('Profile loaded from about.md:', profile.name);
@@ -68,6 +76,10 @@ if (aboutContent) {
       github: "",
       linkedin: "",
       twitter: "",
+      lightning: "",
+      wandb: "",
+      huggingface: "",
+      steam: "",
     },
     hero: {
       heading: "Building",
@@ -80,7 +92,10 @@ if (aboutContent) {
     },
     tagline: "Your Tagline Here.",
     profileImage: "",
-    achievements: []
+    achievements: [],
+    contact: {
+      formspreeId: "",
+    },
   };
 }
 
