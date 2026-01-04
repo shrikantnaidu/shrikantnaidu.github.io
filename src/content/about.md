@@ -28,19 +28,20 @@ contact:
 # Hero Section (Homepage)
 hero:
   heading: "Architecting"
-  subheading: "Building Systems one data point at a time"
+  aboutHeading: "Turning Complexity into Working Systems."
+  subheading: "Building Systems One Data Point at a Time"
   rotatingTexts:
     - "Intelligent Systems."
-    - "Neural Networks."
+    - "Data Platforms"
     - "Scalable Pipelines."
-    - "Generative AI."
-    - "Predictive Models."
+    - "Agentic Workflows."
+    - "Predictive Engines."
 
 # Short Bio (shown on Homepage About section)
-shortBio: "I am a practitioner who believes that the best models are the ones that actually make it to production. My expertise lies in full-stack data science - from orchestrating distributed training pipelines to serving low-latency inference APIs."
+shortBio: "I am a Data Science & Engineering Manager focused on building production-grade ML systems and scalable data architectures. I specialize in bridging the gap between research and production, ensuring intelligent systems deliver real-world value at scale."
 
 # About Page Tagline (the blue text after "Hello, I'm [Name].")
-tagline: "Building for the Future."
+tagline: "Building Systems that Last.."
 
 # Profile Photo
 profileImage: "https://raw.githubusercontent.com/shrikantnaidu/shrikantnaidu.github.io/main/src/assets/sk-img-sharpened.png"
@@ -55,22 +56,30 @@ achievements:
     caption: "Outside the Box Thinker Award 2025"
 ---
 
-I am a passionate engineer dedicated to solving real-world problems through intelligent systems.
+I work at the intersection of data, engineering, and decision-making. Most of my work revolves around designing intelligent systems that don’t just look good in theory, but hold up in production
 
-With a deep focus on **Computer Vision** and **NLP**, I have helped startups and enterprises automate complex workflows and uncover hidden value in their data lakes.
+I specialize in building **Scalable Data Systems** and **Production-Grade ML Pipelines**, helping startups and enterprises automate complex workflows and uncover hidden value in their data lakes.
 
-I am fluent in Python, PyTorch, and the modern MLOps stack (Docker, K8s, Terraform). When I'm not coding, I'm writing about system design for AI.
+I am fluent in Python, PyTorch, and the modern MLOps stack (Docker, K8s, Terraform). When I'm not coding, I'm learning about system design for production AI.
 
 ## My Journey
 
-My journey in data science began during my undergraduate years when I first discovered the power of machine learning to solve complex problems. What started as curiosity quickly turned into a passion for building end-to-end systems that deliver real business value.
+I got into data science during my undergraduate years, driven less by algorithms and more by the idea that software could make sense of messy reality. 
+
+Over time, that curiosity hardened into an obsession with end-to-end ownership not just models, but pipelines, infra, and the decisions they enable.
+
+I’ve learned that most real problems aren’t ML problems, they’re system problems.
 
 ## What I Do
 
-- **Machine Learning Engineering**: Building and deploying production-grade ML models
-- **Data Pipeline Architecture**: Designing scalable data processing systems
-- **Technical Leadership**: Mentoring teams and driving best practices
+- **Machine Learning Engineering**: Building and running ML systems that survive real usage, not just notebooks.
+- **Data Pipeline Architecture**: Designing scalable data pipelines and internal platforms that teams can build on.
+- **Technical Leadership**: Driving execution, mentoring engineers, and keeping teams focused on outcomes over novelty.
 
 ## Beyond Work
 
-When I'm not immersed in data and code, you'll find me exploring the latest research papers, contributing to open-source projects, or sharing knowledge through blog posts and talks.
+Outside of work, I spend time reading research, systems, philosophy, and writing to clarify my own thinking. 
+
+I’m less interested in trends, more in ideas that compound over time - doing the boring things with discipline over chasing directionless innovation.
+
+When I step away from work, I unwind by watching my favorite team dominate La Liga with beautiful football, or by taking out competitive energy on friends over a game of Counter-Strike.
