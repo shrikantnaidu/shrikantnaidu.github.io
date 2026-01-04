@@ -15,6 +15,14 @@ social:
   github: "https://github.com/shrikantnaidu"
   linkedin: "https://www.linkedin.com/in/shrikant-naidu/"
   twitter: "https://x.com/shrikantnaiidu"
+  lightning: "https://lightning.ai/shrikantnaidu777"
+  wandb: "https://wandb.ai/shrikantnaidu"
+  huggingface: "https://huggingface.co/shrikantnaidu"
+  steam: "https://steamcommunity.com/id/shrikantnaidu"
+
+# Contact Configuration
+contact:
+  formspreeId: "https://formspree.io/f/xgebkwej"
 
 # Hero Section (Homepage)
 hero:
