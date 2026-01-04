@@ -54,6 +54,7 @@ export interface Profile {
   };
   hero: {
     heading: string; // The main static text (e.g. "Architecting")
+    aboutHeading: string; // Used on Home page about section
     rotatingTexts: string[];
     subheading: string;
   };
