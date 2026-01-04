@@ -43,7 +43,7 @@ shortBio: "I am a practitioner who believes that the best models are the ones th
 tagline: "Building for the Future."
 
 # Profile Photo
-profileImage: "https://raw.githubusercontent.com/shrikantnaidu/shrikantnaidu.github.io/main/assets/images/sk-img-sharpened.png"
+profileImage: "https://raw.githubusercontent.com/shrikantnaidu/shrikantnaidu.github.io/main/src/assets/images/sk-img-sharpened.png"
 
 # Achievements Slider Images
 achievements:
