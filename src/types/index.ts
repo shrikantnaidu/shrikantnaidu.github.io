@@ -47,6 +47,10 @@ export interface Profile {
     github: string;
     linkedin: string;
     twitter: string;
+    lightning?: string;
+    wandb?: string;
+    huggingface?: string;
+    steam?: string;
   };
   hero: {
     heading: string; // The main static text (e.g. "Architecting")
@@ -60,4 +64,7 @@ export interface Profile {
   tagline: string; // Blue text on About page
   profileImage: string; // Profile photo URL
   achievements: Achievement[]; // Slider images
+  contact: {
+    formspreeId: string;
+  };
 }
