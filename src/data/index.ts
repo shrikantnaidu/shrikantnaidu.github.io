@@ -27,6 +27,7 @@ interface AboutAttributes {
   achievements: Achievement[];
   contact: {
     formspreeId: string;
+    googleAnalyticsId?: string;
   };
 }
 
@@ -60,7 +61,10 @@ if (aboutContent) {
     tagline: attrs.tagline,
     profileImage: attrs.profileImage,
     achievements: attrs.achievements || [],
-    contact: attrs.contact || { formspreeId: "" }
+    contact: {
+      formspreeId: attrs.contact?.formspreeId || "",
+      googleAnalyticsId: attrs.contact?.googleAnalyticsId
+    }
   };
 
   console.log('Profile loaded from about.md:', profile.name);
@@ -95,6 +99,7 @@ if (aboutContent) {
     achievements: [],
     contact: {
       formspreeId: "",
+      googleAnalyticsId: ""
     },
   };
 }
