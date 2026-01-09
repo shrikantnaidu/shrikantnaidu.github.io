@@ -32,14 +32,14 @@ export const AboutPage: React.FC = () => {
           {/* Main Content */}
           <div className="md:col-span-8">
             <Reveal>
-              <h1 className="text-4xl md:text-5xl font-heading font-bold text-neutral-900 mb-8 leading-tight">
+              <h1 className="text-4xl sm:text-5xl md:text-6xl font-heading font-bold text-neutral-900 mb-8 leading-tight">
                 Hello, I'm {profile.name.split(' ')[0]}. <br />
                 <span className="text-blue-600">{profile.tagline}</span>
               </h1>
             </Reveal>
 
             <Reveal delay={0.1}>
-              <div className="prose prose-lg prose-neutral max-w-none text-neutral-600 leading-relaxed">
+              <div className="prose prose-lg prose-neutral max-w-none text-neutral-700 leading-relaxed">
                 <ReactMarkdown>{profile.about.long}</ReactMarkdown>
               </div>
             </Reveal>
@@ -173,23 +173,41 @@ export const AboutPage: React.FC = () => {
 
       {/* Awards Section - Full Width Background Wrapper */}
       {profile.achievements.length > 0 && (
-        <section className="bg-neutral-50 pt-16 pb-24 mb-24 border-t border-neutral-100">
+        <section className="bg-neutral-50 py-12 md:py-24 border-t border-neutral-100">
           <div className="container mx-auto px-6 max-w-6xl">
             <Reveal delay={0.3} width="100%">
               <div>
-                <h2 className="font-heading font-bold text-3xl md:text-4xl text-neutral-900 mb-12">
+                <h2 className="font-heading font-bold text-3xl md:text-4xl text-neutral-900 mb-8 md:mb-12">
                   Awards & Recognition
                 </h2>
 
                 {/* Slider Unit - Wider & Centered Container */}
                 <div className="w-full flex flex-col items-center">
-                  <div className="w-full max-w-5xl relative">
-                    {/* Wide Slider Frame */}
-                    <div className="relative aspect-video rounded-[2.5rem] overflow-hidden shadow-2xl bg-neutral-50 border border-neutral-100">
+                  <div className="w-full max-w-4xl relative">
+                    {/* Consistent Slider Frame */}
+                    <div
+                      className="relative aspect-[4/5] md:aspect-[4/3] lg:aspect-[3/2] max-h-[600px] rounded-3xl md:rounded-[2.5rem] overflow-hidden shadow-2xl bg-neutral-50 border border-neutral-100 group mx-auto"
+                      onTouchStart={(e) => {
+                        const touch = e.touches[0];
+                        (window as any).touchStartX = touch.clientX;
+                      }}
+                      onTouchEnd={(e) => {
+                        const touch = e.changedTouches[0];
+                        const touchEndX = touch.clientX;
+                        const deltaX = (window as any).touchStartX - touchEndX;
+                        if (Math.abs(deltaX) > 50) {
+                          if (deltaX > 0) {
+                            setCurrentSlide((prev) => (prev + 1) % profile.achievements.length);
+                          } else {
+                            setCurrentSlide((prev) => (prev - 1 + profile.achievements.length) % profile.achievements.length);
+                          }
+                        }
+                      }}
+                    >
                       {profile.achievements.map((achievement, index) => (
                         <div
                           key={index}
-                          className={`absolute inset-0 transition-all duration-1000 ease-in-out flex items-center justify-center p-4 md:p-8 ${index === currentSlide ? 'opacity-100 scale-100' : 'opacity-0 scale-95 pointer-events-none'
+                          className={`absolute inset-0 transition-all duration-1000 ease-in-out flex items-center justify-center p-4 md:p-12 ${index === currentSlide ? 'opacity-100 scale-100' : 'opacity-0 scale-95 pointer-events-none'
                             }`}
                         >
                           <img
@@ -201,44 +219,50 @@ export const AboutPage: React.FC = () => {
                       ))}
                     </div>
 
+                    {/* Unified Progress Indicator */}
+                    <div className="flex gap-1.5 mt-8 px-4 w-full max-w-sm mx-auto">
+                      {profile.achievements.map((_, i) => (
+                        <button
+                          key={i}
+                          onClick={() => setCurrentSlide(i)}
+                          className={`h-1 flex-1 rounded-full transition-all duration-500 ${i === currentSlide ? 'bg-blue-600 shadow-sm' : 'bg-neutral-200 hover:bg-neutral-300'
+                            }`}
+                          aria-label={`Go to slide ${i + 1}`}
+                        />
+                      ))}
+                    </div>
+
                     {/* Caption Section */}
-                    <div className="text-center mt-12">
+                    <div className="text-center mt-8 md:mt-10">
                       <h4 className="text-xl md:text-2xl font-bold text-neutral-800 tracking-wider uppercase">
                         {profile.achievements[currentSlide]?.caption}
                       </h4>
                     </div>
 
-                    {/* Navigation Dots & Arrows Group */}
-                    <div className="flex items-center justify-center space-x-8 mt-10">
+                    {/* Desktop Navigation Arrows */}
+                    <div className="hidden md:block">
                       <button
                         onClick={() => setCurrentSlide((prev) => (prev - 1 + profile.achievements.length) % profile.achievements.length)}
-                        className="p-3 rounded-full bg-white shadow-md text-neutral-400 hover:text-blue-600 hover:shadow-lg transition-all transform hover:-translate-x-1"
+                        className="absolute top-1/2 -left-16 lg:-left-24 -translate-y-1/2 p-4 rounded-full bg-white shadow-lg text-neutral-400 hover:text-blue-600 hover:shadow-xl transition-all transform hover:-translate-x-1"
                         aria-label="Previous slide"
                       >
-                        <ChevronLeft size={24} />
+                        <ChevronLeft size={32} />
                       </button>
-
-                      <div className="flex space-x-3">
-                        {profile.achievements.map((_, index) => (
-                          <button
-                            key={index}
-                            onClick={() => setCurrentSlide(index)}
-                            className={`h-2.5 rounded-full transition-all duration-500 ${index === currentSlide
-                              ? 'bg-blue-600 w-12 shadow-sm'
-                              : 'bg-neutral-300 w-2.5 hover:bg-neutral-400'
-                              }`}
-                            aria-label={`Go to slide ${index + 1}`}
-                          />
-                        ))}
-                      </div>
 
                       <button
                         onClick={() => setCurrentSlide((prev) => (prev + 1) % profile.achievements.length)}
-                        className="p-3 rounded-full bg-white shadow-md text-neutral-400 hover:text-blue-600 hover:shadow-lg transition-all transform hover:translate-x-1"
+                        className="absolute top-1/2 -right-16 lg:-right-24 -translate-y-1/2 p-4 rounded-full bg-white shadow-lg text-neutral-400 hover:text-blue-600 hover:shadow-xl transition-all transform hover:translate-x-1"
                         aria-label="Next slide"
                       >
-                        <ChevronRight size={24} />
+                        <ChevronRight size={32} />
                       </button>
+                    </div>
+
+                    {/* Interaction Hint */}
+                    <div className="flex flex-col items-center mt-6">
+                      <span className="text-[10px] font-bold text-neutral-400 uppercase tracking-widest mb-2 animate-pulse">
+                        {window.innerWidth < 768 ? 'Swipe to navigate' : 'Click arrows or bars to navigate'}
+                      </span>
                     </div>
                   </div>
                 </div>
