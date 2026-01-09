@@ -47,14 +47,14 @@ export const Contact: React.FC = () => {
   };
 
   return (
-    <section id="contact" className="py-24 bg-neutral-50 scroll-mt-24">
+    <section id="contact" className="py-16 md:py-24 bg-neutral-50 scroll-mt-24">
       <div className="container mx-auto px-6 max-w-3xl">
         <Reveal>
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-heading font-bold text-neutral-900 mb-4">
               Get in touch
             </h2>
-            <p className="text-neutral-500 text-lg">
+            <p className="text-neutral-600 text-lg md:text-xl">
               Interested in collaboration? Let's discuss your data strategy.
             </p>
           </div>
@@ -79,7 +79,7 @@ export const Contact: React.FC = () => {
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="space-y-2">
-                  <label htmlFor="name" className="text-sm font-medium text-neutral-700 ml-1">Name</label>
+                  <label htmlFor="name" className="text-base font-medium text-neutral-700 ml-1">Name</label>
                   <input
                     required
                     type="text"
@@ -91,7 +91,7 @@ export const Contact: React.FC = () => {
                   />
                 </div>
                 <div className="space-y-2">
-                  <label htmlFor="email" className="text-sm font-medium text-neutral-700 ml-1">Email</label>
+                  <label htmlFor="email" className="text-base font-medium text-neutral-700 ml-1">Email</label>
                   <input
                     required
                     type="email"
@@ -105,7 +105,7 @@ export const Contact: React.FC = () => {
               </div>
 
               <div className="space-y-2">
-                <label htmlFor="message" className="text-sm font-medium text-neutral-700 ml-1">Message</label>
+                <label htmlFor="message" className="text-base font-medium text-neutral-700 ml-1">Message</label>
                 <textarea
                   required
                   id="message"
