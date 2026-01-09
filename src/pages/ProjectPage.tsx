@@ -41,7 +41,7 @@ export const ProjectPage: React.FC = () => {
                      {project.category}
                   </span>
                </div>
-               <p className="text-xl md:text-2xl text-neutral-500 leading-relaxed mb-12 max-w-3xl">
+               <p className="text-xl md:text-2xl text-neutral-600 leading-relaxed mb-12 max-w-3xl">
                   {project.description}
                </p>
             </Reveal>
