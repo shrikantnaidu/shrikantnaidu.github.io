@@ -26,7 +26,7 @@ export const WorksPage: React.FC = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, index) => (
-            <Reveal key={project.id} delay={index * 0.05}>
+            <Reveal key={project.id} delay={index * 0.05} width="100%" height="100%">
               <ProjectCard project={project} />
             </Reveal>
           ))}
