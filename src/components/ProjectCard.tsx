@@ -23,14 +23,14 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
       </div>
       <div className="p-8 flex flex-col flex-grow">
         <div className="mb-4">
-          <span className="text-xs font-bold text-blue-600 uppercase tracking-wider">
+          <span className="text-[13px] font-bold text-blue-600 uppercase tracking-wider">
             {project.category}
           </span>
         </div>
-        <h3 className="text-xl font-heading font-bold text-neutral-900 mb-3 group-hover:text-blue-600 transition-colors">
+        <h3 className="text-xl font-heading font-bold text-neutral-900 mb-3 group-hover:text-blue-600 transition-colors line-clamp-2">
           {project.title}
         </h3>
-        <p className="text-neutral-500 leading-relaxed mb-4 line-clamp-2 flex-grow">
+        <p className="text-neutral-500 leading-relaxed mb-6 line-clamp-3 flex-grow">
           {project.description}
         </p>
 
@@ -40,19 +40,19 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
             {project.tags.slice(0, 3).map((tag) => (
               <span
                 key={tag}
-                className="px-2 py-1 bg-neutral-100 text-neutral-600 text-[10px] font-bold uppercase tracking-wider rounded"
+                className="px-2 py-1 bg-neutral-100 text-neutral-600 text-xs font-bold uppercase tracking-wider rounded"
               >
                 {tag}
               </span>
             ))}
             {project.tags.length > 3 && (
-               <span className="px-2 py-1 bg-neutral-100 text-neutral-400 text-[10px] font-bold uppercase tracking-wider rounded">+{project.tags.length - 3}</span>
+              <span className="px-2 py-1 bg-neutral-100 text-neutral-400 text-[10px] font-bold uppercase tracking-wider rounded">+{project.tags.length - 3}</span>
             )}
           </div>
         )}
 
-        <div className={`flex items-center text-sm font-bold text-neutral-900 ${(!project.tags || project.tags.length === 0) ? 'mt-auto' : ''}`}>
-          View <ArrowRight size={16} className="ml-2 group-hover:translate-x-1 transition-transform" />
+        <div className={`flex items-center text-base font-bold text-neutral-900 mt-auto`}>
+          View <ArrowRight size={18} className="ml-2 group-hover:translate-x-1 transition-transform" />
         </div>
       </div>
     </Link>
