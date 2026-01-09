@@ -8,7 +8,7 @@ export const Writing: React.FC = () => {
   const recentPosts = posts.slice(0, 3);
 
   return (
-    <section id="writing" className="py-24 bg-neutral-50 scroll-mt-24">
+    <section id="writing" className="py-16 md:py-24 bg-neutral-50 scroll-mt-24">
       <div className="container mx-auto px-6 max-w-4xl">
         <div className="flex items-center justify-between mb-16">
           <Reveal>
