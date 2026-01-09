@@ -169,9 +169,9 @@ export const Hero: React.FC = () => {
 
   const HeroContent = () => (
     <div
-      className="flex flex-col items-center text-center max-w-5xl mx-auto px-6 py-20"
+      className="flex flex-col items-center text-center max-w-5xl mx-auto px-6 py-12 md:py-20"
     >
-      <h1 className="text-6xl md:text-8xl lg:text-9xl font-heading font-black text-neutral-900 leading-[0.9] mb-8 tracking-tighter text-center uppercase">
+      <h1 className="text-4xl sm:text-5xl md:text-8xl lg:text-9xl font-heading font-black text-neutral-900 leading-[0.9] mb-6 md:mb-8 tracking-tighter text-center uppercase">
         {profile.hero.heading} <br />
         <span className="text-blue-600 block">
           <span key={textIndex} className="block animate-fade-in-up">
@@ -180,7 +180,7 @@ export const Hero: React.FC = () => {
         </span>
       </h1>
 
-      <p className="text-xl md:text-2xl text-neutral-500 max-w-3xl leading-relaxed mb-12 font-medium text-center mx-auto uppercase tracking-wide">
+      <p className="text-lg md:text-2xl text-neutral-500 max-w-3xl leading-relaxed mb-8 md:mb-12 font-medium text-center mx-auto uppercase tracking-wide">
         {profile.hero.subheading}
       </p>
 
