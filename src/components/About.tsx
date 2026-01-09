@@ -5,7 +5,7 @@ import { profile } from '../data';
 
 export const About: React.FC = () => {
    return (
-      <section id="about" className="py-24 bg-white scroll-mt-24">
+      <section id="about" className="py-16 md:py-24 bg-white scroll-mt-24">
          <div className="container mx-auto px-6 max-w-6xl">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
                <Reveal>
@@ -22,16 +22,16 @@ export const About: React.FC = () => {
 
                <div>
                   <Reveal delay={0.2}>
-                     <span className="text-blue-600 font-semibold tracking-wider uppercase text-sm mb-4 block">
+                     <span className="text-blue-600 font-semibold tracking-wider uppercase text-base mb-4 block">
                         About Me
                      </span>
-                     <h2 className="text-4xl font-heading font-bold text-neutral-900 mb-8 leading-tight">
+                     <h2 className="text-4xl sm:text-5xl font-heading font-bold text-neutral-900 mb-8 leading-tight">
                         {profile.hero.aboutHeading}
                      </h2>
                   </Reveal>
 
                   <Reveal delay={0.3}>
-                     <div className="space-y-6 text-lg text-neutral-500 leading-relaxed">
+                     <div className="space-y-6 text-lg md:text-xl text-neutral-600 leading-relaxed">
                         <p>
                            {profile.about.short}
                         </p>
