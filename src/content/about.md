@@ -44,7 +44,7 @@ shortBio: "I am a Data Science & Engineering Manager focused on building product
 tagline: "Building Systems that Last.."
 
 # Profile Photo
-profileImage: "https://raw.githubusercontent.com/shrikantnaidu/shrikantnaidu.github.io/main/src/assets/sk-img-sharpened.png"
+profileImage: "/images/sk-img-upscaled.png"
 
 # Achievements Slider Images
 achievements:
