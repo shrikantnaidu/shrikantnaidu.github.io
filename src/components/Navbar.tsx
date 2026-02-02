@@ -103,15 +103,12 @@ export const Navbar: React.FC = () => {
             Menu
           </span>
           <button
-            className="text-neutral-900 focus:outline-none p-4 hover:bg-neutral-50 rounded-full transition-all active:scale-90 flex items-center justify-center bg-white shadow-sm border border-neutral-100"
-            onClick={(e) => {
-              e.preventDefault();
-              e.stopPropagation();
-              setIsOpen(false);
-            }}
+            type="button"
+            className="w-16 h-16 flex items-center justify-center text-neutral-900 bg-neutral-100 hover:bg-neutral-200 rounded-full transition-all active:scale-95 touch-manipulation"
+            onClick={() => setIsOpen(false)}
             aria-label="Close menu"
           >
-            <X size={36} />
+            <X size={32} strokeWidth={2.5} />
           </button>
         </div>
 
