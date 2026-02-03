@@ -22,3 +22,7 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Utility scripts
+crop-logo.js
+crop-logo.mjs
