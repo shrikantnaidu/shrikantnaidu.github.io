@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Menu, X } from 'lucide-react';
 import { NavItem } from '../types';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
@@ -16,6 +16,7 @@ export const Navbar: React.FC = () => {
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
+  const closeButtonRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -25,6 +26,29 @@ export const Navbar: React.FC = () => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  // Direct DOM event listener for close button
+  useEffect(() => {
+    const closeButton = closeButtonRef.current;
+    if (!closeButton) return;
+
+    const handleClose = (e: Event) => {
+      e.preventDefault();
+      e.stopPropagation();
+      setIsOpen(false);
+    };
+
+    // Add multiple event types for maximum compatibility
+    closeButton.addEventListener('touchstart', handleClose, { passive: false });
+    closeButton.addEventListener('mousedown', handleClose);
+    closeButton.addEventListener('click', handleClose);
+
+    return () => {
+      closeButton.removeEventListener('touchstart', handleClose);
+      closeButton.removeEventListener('mousedown', handleClose);
+      closeButton.removeEventListener('click', handleClose);
+    };
+  }, [isOpen]);
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault();
@@ -44,14 +68,15 @@ export const Navbar: React.FC = () => {
     }
   };
 
+  // Lock body scroll when menu is open
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = 'hidden';
     } else {
-      document.body.style.overflow = 'unset';
+      document.body.style.overflow = '';
     }
     return () => {
-      document.body.style.overflow = 'unset';
+      document.body.style.overflow = '';
     };
   }, [isOpen]);
 
@@ -62,8 +87,12 @@ export const Navbar: React.FC = () => {
           }`}
       >
         <div className="container mx-auto px-6 flex justify-between items-center relative">
-          <Link to="/" className="text-xl font-heading font-bold text-neutral-900 tracking-tight">
-            Shrikant Naidu
+          <Link to="/">
+            <img
+              src="/images/logo-transparent.png"
+              alt="Shrikant Naidu"
+              className="h-[80px] w-auto"
+            />
           </Link>
 
           {/* Desktop Menu */}
@@ -83,6 +112,7 @@ export const Navbar: React.FC = () => {
           {/* Mobile Toggle */}
           {!isOpen && (
             <button
+              type="button"
               className="md:hidden text-neutral-900 focus:outline-none p-2 -mr-2"
               onClick={() => setIsOpen(true)}
               aria-label="Open menu"
@@ -93,48 +123,57 @@ export const Navbar: React.FC = () => {
         </div>
       </nav>
 
-      <div
-        className={`fixed inset-0 bg-white z-[100] flex flex-col transition-all duration-500 ease-in-out ${isOpen ? 'opacity-100 translate-y-0 pointer-events-auto' : 'opacity-0 -translate-y-full pointer-events-none'
-          }`}
-      >
-        {/* Mobile Overlay Header */}
-        <div className="flex justify-between items-center p-6 h-24">
-          <span className="text-xl font-heading font-bold text-neutral-900 tracking-tight">
-            Menu
-          </span>
-          <button
-            type="button"
-            className="w-16 h-16 flex items-center justify-center text-neutral-900 bg-neutral-100 hover:bg-neutral-200 rounded-full transition-all active:scale-95 touch-manipulation"
-            onClick={() => setIsOpen(false)}
-            aria-label="Close menu"
-          >
-            <X size={32} strokeWidth={2.5} />
-          </button>
-        </div>
+      {/* Mobile Menu Overlay */}
+      {isOpen && (
+        <div
+          className="fixed inset-0 z-[9999] md:hidden bg-white"
+          style={{ touchAction: 'none' }}
+        >
+          {/* Header with close button */}
+          <div className="flex justify-between items-center p-6">
+            <span className="text-xl font-heading font-bold text-neutral-900 tracking-tight">
+              Menu
+            </span>
+            {/* Close Button - using ref for direct DOM event handling */}
+            <button
+              ref={closeButtonRef}
+              type="button"
+              className="w-14 h-14 flex items-center justify-center text-neutral-900 bg-neutral-100 rounded-full cursor-pointer select-none"
+              style={{
+                WebkitTapHighlightColor: 'transparent',
+                touchAction: 'manipulation',
+                userSelect: 'none'
+              }}
+              aria-label="Close menu"
+            >
+              <X size={28} strokeWidth={2.5} />
+            </button>
+          </div>
 
-        <div className="flex-grow flex flex-col items-center justify-center -mt-20">
-          <div className="flex flex-col space-y-8 text-center px-6 w-full">
-            {navItems.map((item, index) => (
-              <a
-                key={item.label}
-                href={item.href}
-                className={`text-4xl font-menu font-bold text-neutral-900 hover:text-blue-600 transition-all duration-500 uppercase tracking-widest block py-3 border-b border-transparent ${isOpen ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-8 scale-95'
-                  }`}
-                style={{ transitionDelay: `${index * 75}ms` }}
-                onClick={(e) => handleNavClick(e, item.href)}
-              >
-                {item.label}
-              </a>
-            ))}
+          {/* Navigation Links */}
+          <div className="flex-grow flex flex-col items-center justify-center h-[calc(100%-200px)]">
+            <div className="flex flex-col space-y-6 text-center px-6 w-full">
+              {navItems.map((item) => (
+                <a
+                  key={item.label}
+                  href={item.href}
+                  className="text-3xl font-menu font-bold text-neutral-900 uppercase tracking-widest block py-2"
+                  onClick={(e) => handleNavClick(e, item.href)}
+                >
+                  {item.label}
+                </a>
+              ))}
+            </div>
+          </div>
+
+          {/* Footer */}
+          <div className="absolute bottom-0 left-0 right-0 p-8 text-center border-t border-neutral-100">
+            <div className="text-neutral-400 text-xs font-medium tracking-[0.2em] uppercase">
+              © {new Date().getFullYear()} Shrikant Naidu
+            </div>
           </div>
         </div>
-
-        <div className="p-8 text-center border-t border-neutral-50">
-          <div className="text-neutral-400 text-xs font-medium tracking-[0.2em] uppercase mb-2">
-            © {new Date().getFullYear()} Shrikant Naidu
-          </div>
-        </div>
-      </div>
+      )}
     </>
   );
 };
