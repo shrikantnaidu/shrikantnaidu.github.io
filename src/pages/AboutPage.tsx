@@ -99,7 +99,7 @@ export const AboutPage: React.FC = () => {
                         </a>
                       )}
 
-                      {profile.social.lightning && (
+                      {/* {profile.social.lightning && (
                         <a href={profile.social.lightning} target="_blank" rel="noopener noreferrer" className="flex items-center text-neutral-600 hover:text-blue-600 transition-colors group">
                           <div className="w-10 h-10 rounded-full bg-neutral-50 flex items-center justify-center mr-4 group-hover:bg-blue-50 transition-colors text-neutral-500 group-hover:text-blue-600">
                             <svg viewBox="0 0 33 38" fill="currentColor" className="w-[18px] h-[18px]">
@@ -108,9 +108,9 @@ export const AboutPage: React.FC = () => {
                           </div>
                           <span className="font-medium">Lightning AI</span>
                         </a>
-                      )}
+                      )} */}
 
-                      {profile.social.wandb && (
+                      {/* {profile.social.wandb && (
                         <a href={profile.social.wandb} target="_blank" rel="noopener noreferrer" className="flex items-center text-neutral-600 hover:text-blue-600 transition-colors group">
                           <div className="w-10 h-10 rounded-full bg-neutral-50 flex items-center justify-center mr-4 group-hover:bg-blue-50 transition-colors text-neutral-500 group-hover:text-blue-600">
                             <svg viewBox="0 0 170 170" fill="currentColor" className="w-[18px] h-[18px]">
@@ -132,7 +132,7 @@ export const AboutPage: React.FC = () => {
                           </div>
                           <span className="font-medium">Weights & Biases</span>
                         </a>
-                      )}
+                      )} */}
 
                       {profile.social.huggingface && (
                         <a href={profile.social.huggingface} target="_blank" rel="noopener noreferrer" className="flex items-center text-neutral-600 hover:text-blue-600 transition-colors group">
